@@ -30,6 +30,7 @@ public class AudioManger : MonoBehaviour
     private void Start()
     {
         play("Theme");
+        play("menu");
     }
     public void play(String name)
     {

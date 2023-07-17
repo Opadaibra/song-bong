@@ -57,20 +57,32 @@ public class GameManger : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        AudioManger.instance.play("menu");
         SceneManager.LoadScene(0);
     }
 
     public void StartGame()
+         {
+           
+             if (Time.timeScale == 0)
+             {
+                 Time.timeScale = 1;
+                 Cursor.visible = false; // Hide the mouse cursor when the game is started
+                
+             }
+             SceneManager.LoadScene(1);
+         }
+    public void RestartGame()
     {
+      
         if (Time.timeScale == 0)
         {
             Time.timeScale = 1;
             Cursor.visible = false; // Hide the mouse cursor when the game is started
            
         }
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
     public void AboutUs()
     {
         SceneManager.LoadScene(2);
