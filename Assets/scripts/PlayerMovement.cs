@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _isJumping = false; // Flag to track if the player is jumping
     private Rigidbody _rb; // Reference to the player's Rigidbody component
     private Camera _mainCamera;
-    public Transform gameOverPanel;
-    public Transform winPanel;
+        public Transform gameOverPanel;
+        public Transform winPanel;
     Animator animator;
     private static readonly int Jump = Animator.StringToHash("jump");
 
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
                 AudioManger.instance.Stop("run");
             
         }
-        // Player jumping
+        // Player jumping   
         if (Input.GetButtonDown("Jump") && !_isJumping)
         {
             _rb.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
