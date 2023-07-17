@@ -15,6 +15,7 @@ public class playerMovment : MonoBehaviour
     bool isAnotherOurControl;
     public Transform gameOverPanel;
     public Transform winPanel;
+    public bool isGameOver =false;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -50,12 +51,15 @@ public class playerMovment : MonoBehaviour
     {
         if (other.CompareTag("fall"))
         {
+            Cursor.visible = true; 
             gameOverPanel.gameObject.SetActive(true);
             Time.timeScale = 0;
+            isGameOver =true;
         }
         
         if (other.CompareTag("endline"))
         {
+            Cursor.visible = true; 
             winPanel.gameObject.SetActive(true);
             Invoke("freeze" , 2);
             

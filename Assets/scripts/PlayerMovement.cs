@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Camera _mainCamera;
         public Transform gameOverPanel;
         public Transform winPanel;
+        public bool isGameOver =false;
     Animator animator;
     private static readonly int Jump = Animator.StringToHash("jump");
 
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         _mainCamera = Camera.main;
+        isGameOver =false;
     }
 
     void Update()
@@ -67,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
         {
             gameOverPanel.gameObject.SetActive(true);
             Time.timeScale = 0;
+            isGameOver =true;
+
         }
         
         if (other.CompareTag("endline"))
